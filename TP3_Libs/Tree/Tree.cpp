@@ -10,7 +10,7 @@ Tree::~Tree() {
 	
 }
 
-/**void Tree::add(TreeElement* e) {
+/**void Tree::add(TreeElement* element) {
 	if (searchElement(e) != -1) throw std::exception("Element already exists!");
 	if (_root == NULL) {
 		Node* nodeToAdd = new Node(e, _root);
@@ -24,7 +24,7 @@ bool Tree::isEmpty() {
 	return _root == NULL;
 }
 
-/**int Tree::searchElement(TreeElement* e) {
+/**int Tree::searchElement(TreeElement* element) {
 
 }
 
@@ -43,7 +43,7 @@ void Tree::balanceTree(){
 
 /**                NODE                **/
 //PUBLIC
-Tree::Node::Node(TreeElement* e, Node* parent) {
+Tree::Node::Node(TreeElement* element, Node* parent) {
 	_element = e;
 	_parent = parent;
 	_left = NULL;

@@ -7,15 +7,15 @@ class Tree {
 	public:
 		Tree();
 		~Tree();
-		void add(TreeElement* e);
+		void add(TreeElement* element);
 		bool isEmpty();
-		int searchElement(TreeElement* e);
+		int searchElement(TreeElement* element);
 		int nbOfElements();
 		int getDepth(); //BONUS
 	private:
 		struct Node {
 			public:
-				Node(TreeElement* e, Node* parent);
+				Node(TreeElement* element, Node* parent);
 			private:
 				TreeElement* _element;
 				Node* _parent;
