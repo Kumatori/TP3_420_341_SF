@@ -22,5 +22,6 @@ class Tree {
 				Node* _left;
 				Node* _right;
 		};
+		void balanceTree();
 		Node* _root;
 };
