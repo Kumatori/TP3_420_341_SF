@@ -13,7 +13,13 @@ Tree::~Tree() {
 }
 
 void Tree::add(TreeElement* e) {
-
+	if (searchElement(e) == -1) throw std::exception("Element not found!");
+	if (_root == NULL) {
+		Node* nodeToAdd = new Node(e, _root);
+		_root = nodeToAdd;
+	} else {
+		
+	}
 }
 
 bool Tree::isEmpty() {
