@@ -3,7 +3,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace TreeTests
+namespace GraphTests
 {		
 	TEST_CLASS(UnitTest1)
 	{

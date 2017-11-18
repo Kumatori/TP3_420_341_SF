@@ -23,10 +23,10 @@ void Tree::add(TreeElement* e) {
 }
 
 bool Tree::isEmpty() {
-	if (_root == NULL);
+	return (_root == NULL);
 }
 
-int Tree::searchElement(TreeElement* e) {
+/**int Tree::searchElement(TreeElement* e) {
 
 }
 
@@ -41,7 +41,7 @@ int Tree::getDepth() {
 //PRIVATE
 void Tree::balanceTree(){
 	
-}
+}**/
 
 /**                NODE                **/
 //PUBLIC
