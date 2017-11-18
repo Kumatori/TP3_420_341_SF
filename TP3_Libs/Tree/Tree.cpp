@@ -14,7 +14,7 @@ void Tree::add(TreeElement* e) {
 }
 
 bool Tree::isEmpty() {
-
+	if (_root == NULL);
 }
 
 int Tree::searchElement(TreeElement* e) {
