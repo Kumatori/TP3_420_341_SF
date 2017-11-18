@@ -1,12 +1,15 @@
 #include "Tree.h"
 
+/**                TREE                **/
 //PUBLIC
 Tree::Tree() {
 	_root = NULL;
 }
 
 Tree::~Tree() {
+	while (_root != NULL) {
 
+	}
 }
 
 void Tree::add(TreeElement* e) {
@@ -32,4 +35,13 @@ int Tree::getDepth() {
 //PRIVATE
 void Tree::balanceTree(){
 	
+}
+
+/**                NODE                **/
+//PUBLIC
+Tree::Node::Node(TreeElement* e, Node* parent) {
+	_element = e;
+	_parent = parent;
+	_left = NULL;
+	_right = NULL;
 }

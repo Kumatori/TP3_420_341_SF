@@ -15,7 +15,7 @@ class Tree {
 	private:
 		struct Node {
 			public:
-				Node();
+				Node(TreeElement* e, Node* parent);
 			private:
 				TreeElement* _element;
 				Node* _parent;
