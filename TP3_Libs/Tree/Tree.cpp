@@ -7,12 +7,10 @@ Tree::Tree() {
 }
 
 Tree::~Tree() {
-	while (_root != NULL) {
-
-	}
+	
 }
 
-void Tree::add(TreeElement* e) {
+/**void Tree::add(TreeElement* e) {
 	if (searchElement(e) == -1) throw std::exception("Element not found!");
 	if (_root == NULL) {
 		Node* nodeToAdd = new Node(e, _root);
@@ -20,10 +18,10 @@ void Tree::add(TreeElement* e) {
 	} else {
 		
 	}
-}
+}**/
 
 bool Tree::isEmpty() {
-	return (_root == NULL);
+	return _root == NULL;
 }
 
 /**int Tree::searchElement(TreeElement* e) {

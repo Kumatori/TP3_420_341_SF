@@ -1,6 +1,4 @@
 #pragma once
-#include "LinkedList.h"
-#include "LinkedListElement.h"
 #include "Node.h"
 #include <iostream>
 
@@ -10,8 +8,8 @@ class Edge {
 		Edge();
 		~Edge();
 		unsigned int getCost();
-		Node* getNeighbor();
+		//Node* getNeighbor();
 	private:
 		unsigned int _cost;
-		Node* _neighbor;
+		//Node* _neighbor;
 };
