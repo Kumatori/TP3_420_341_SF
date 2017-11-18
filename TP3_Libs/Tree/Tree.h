@@ -16,12 +16,13 @@ class Tree {
 		struct Node {
 			public:
 				Node(TreeElement* element, Node* parent);
-			private:
 				TreeElement* _element;
 				Node* _parent;
 				Node* _left;
 				Node* _right;
 		};
+		void remove(Node* node);
+		void add(TreeElement* element, Node* node);
 		void balanceTree();
 		Node* _root;
 };
