@@ -44,7 +44,7 @@ void Tree::balanceTree(){
 /**                NODE                **/
 //PUBLIC
 Tree::Node::Node(TreeElement* element, Node* parent) {
-	_element = e;
+	_element = element;
 	_parent = parent;
 	_left = NULL;
 	_right = NULL;
