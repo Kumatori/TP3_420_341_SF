@@ -1,16 +1,17 @@
 #pragma once
 #include "TreeElement.h"
 
-using namespace std;
-class TreeElement {
-	TreeElement::TreeElement() {
-	}
+TreeElement::TreeElement(int value) {
+	_value = value;
+}
 
-	bool TreeElement::operator==(const TreeElement& rObject) const{
-		return false;
-	}
+TreeElement::~TreeElement() {
+}
 
-	bool TreeElement::operator<(const TreeElement& rObject) const {
-		return false;
-	}
-};
+bool TreeElement::operator==(const TreeElement & rObject) const {
+	return rObject._value == this->_value;
+}
+
+bool TreeElement::operator<(const TreeElement & rObject) const {
+	return rObject._value < this->_value;
+}
