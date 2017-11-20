@@ -2,13 +2,24 @@
 #include "Tree.h"
 
 /**                TREE                **/
-//PUBLIC
 Tree::Tree() {
 	_root = NULL;
 }
 
+bool Tree::isEmpty() {
+	return _root == NULL;
+}
+
 Tree::~Tree() {
 	remove(_root);
+}
+
+void Tree::remove(Node* node) {
+	if (node != NULL) {
+		remove(node->_left);
+		remove(node->_right);
+		delete node;
+	}
 }
 
 void Tree::add(TreeElement* element) {
@@ -19,59 +30,79 @@ void Tree::add(TreeElement* element) {
 	}
 }
 
-bool Tree::isEmpty() {
-	return _root == NULL;
-}
-
-/**int Tree::searchElement(TreeElement* element) {
-
-}
-
-int Tree::nbOfElements() {
-
-}
-
-int Tree::getDepth() {
-	//BONUS
-}**/
-
-//PRIVATE
-void Tree::remove(Node* node) {
-	if (node != NULL) {
-		remove(node->_left);
-		remove(node->_right);
-		delete node;
-	}
-}
-
 void Tree::add(TreeElement* element, Node* node) {
 	if (*element == *(node->_element)) {
 		throw ElementToAddAlreadyExistingException("Element already exists in tree!");
-	} else {
+	}
+	else {
 		if (*element < *(node->_element)) {
 			if (node->_left == NULL) {
 				Node* newNode = new Node(element, node);
 				node->_left = newNode;
-			} else {
+			}
+			else {
 				add(element, node->_left);
 			}
-		} else {
+		}
+		else {
 			if (node->_right == NULL) {
 				Node* newNode = new Node(element, node);
 				node->_right = newNode;
-			} else {
+			}
+			else {
 				add(element, node->_right);
 			}
 		}
 	}
 }
 
-/**void Tree::balanceTree(){
-	
-}**/
+void Tree::balanceTree(){
+
+}
+
+int Tree::nbOfElements() {
+	int nbElements = 0;
+	return nbOfElements(_root, nbElements);
+}
+
+int Tree::nbOfElements(Node* node, int nbElements) {
+	if (node != NULL) {
+		nbElements++;
+		nbOfElements(node->_left, nbElements);
+		nbOfElements(node->_right, nbElements);
+	}
+}
+
+int Tree::searchElement(TreeElement* element) {
+	int depth = -1;
+	if (_root == NULL) return depth;
+	int tempDepth = 0;
+	return depth + searchElement(_root, element, tempDepth);
+}
+
+int Tree::searchElement(Node* node, TreeElement* element, int tempDepth) {
+	tempDepth++;
+	if (node->_element = element) return tempDepth;
+	if (node->_left == NULL) {
+		tempDepth = 0;
+	} else {
+		searchElement(node->_left, element, tempDepth);
+	}
+	if (node->_right == NULL) {
+		tempDepth = 0;
+	} else {
+		searchElement(node->_right, element, tempDepth);
+	}
+
+	return tempDepth;
+}
+
+int Tree::getDepth() {
+	//BONUS
+	return 0;
+}
 
 /**                NODE                **/
-//PUBLIC
 Tree::Node::Node(TreeElement* element, Node* parent) {
 	_element = element;
 	_parent = parent;

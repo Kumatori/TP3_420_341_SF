@@ -27,5 +27,7 @@ class Tree {
 		void remove(Node* node);
 		void add(TreeElement* element, Node* node);
 		void balanceTree();
+		int nbOfElements(Node* node, int nbElements);
+		int searchElement(Node* node, TreeElement* element, int tempDepth);
 		Node* _root;
 };
