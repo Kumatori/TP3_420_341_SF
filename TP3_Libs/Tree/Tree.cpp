@@ -1,5 +1,6 @@
 #pragma once
 #include "Tree.h"
+#include "TreeElement.h"
 
 /**                TREE                **/
 Tree::Tree() {

@@ -115,12 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IntElement.h" />
     <ClInclude Include="TreeElement.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tree.cpp" />
-    <ClCompile Include="TreeElement.cpp" />
+    <ClCompile Include="IntElement.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

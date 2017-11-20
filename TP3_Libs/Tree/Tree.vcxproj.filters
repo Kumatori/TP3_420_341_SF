@@ -21,12 +21,15 @@
     <ClInclude Include="TreeElement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IntElement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TreeElement.cpp">
+    <ClCompile Include="IntElement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
