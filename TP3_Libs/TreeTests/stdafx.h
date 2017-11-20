@@ -12,3 +12,5 @@
 
 // TODO: reference additional headers your program requires here
 #include "../Tree/Tree.h"
+#include "../Tree/IntElement.h"
+#include "../Tree/TreeElement.h"

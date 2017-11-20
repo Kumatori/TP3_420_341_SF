@@ -72,6 +72,7 @@ int Tree::nbOfElements(Node* node, int nbElements) {
 		nbOfElements(node->_left, nbElements);
 		nbOfElements(node->_right, nbElements);
 	}
+	return nbElements;
 }
 
 int Tree::searchElement(TreeElement* element) {
