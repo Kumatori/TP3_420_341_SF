@@ -13,6 +13,10 @@ class Tree {
 		int nbOfElements();
 		int getDepth(); //BONUS
 	private:
+		struct ElementToAddAlreadyExistingException : public std::runtime_error {
+			public:
+				ElementToAddAlreadyExistingException(const char* message) : std::runtime_error(message) {};
+		};
 		struct Node {
 			public:
 				Node(TreeElement* element, Node* parent);

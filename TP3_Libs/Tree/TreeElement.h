@@ -2,5 +2,10 @@
 
 class TreeElement {
 	protected:
-		TreeElement(){}
+		TreeElement();
+	public:
+		bool operator==(const TreeElement& rObject) const;
+		bool operator<(const TreeElement& rObject) const;
+	private:
+		int _value;
 };

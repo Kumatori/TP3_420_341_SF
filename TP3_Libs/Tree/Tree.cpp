@@ -1,3 +1,4 @@
+#pragma once
 #include "Tree.h"
 
 /**                TREE                **/
@@ -45,7 +46,7 @@ void Tree::remove(Node* node) {
 
 void Tree::add(TreeElement* element, Node* node) {
 	if (*element == *(node->_element)) {
-		throw element_to_add_already_existing();
+		throw ElementToAddAlreadyExistingException("Element already exists in tree!");
 	} else {
 		if (*element < *(node->_element)) {
 			if (node->_left == NULL) {
