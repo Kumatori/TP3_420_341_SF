@@ -7,12 +7,12 @@ Tree::Tree() {
 	_root = NULL;
 }
 
-bool Tree::isEmpty() {
-	return _root == NULL;
-}
-
 Tree::~Tree() {
 	remove(_root);
+}
+
+bool Tree::isEmpty() {
+	return _root == NULL;
 }
 
 void Tree::remove(Node* node) {
@@ -72,6 +72,7 @@ int Tree::nbOfElements(Node* node, int nbElements) {
 		nbOfElements(node->_left, nbElements);
 		nbOfElements(node->_right, nbElements);
 	}
+	return nbElements;
 }
 
 int Tree::searchElement(TreeElement* element) {
@@ -94,7 +95,6 @@ int Tree::searchElement(Node* node, TreeElement* element, int tempDepth) {
 	} else {
 		searchElement(node->_right, element, tempDepth);
 	}
-
 	return tempDepth;
 }
 
