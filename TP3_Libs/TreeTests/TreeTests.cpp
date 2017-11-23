@@ -10,5 +10,9 @@ namespace TreeTests {
 				
 				Assert::IsTrue(anyTree.isEmpty());
 			}
+			TEST_METHOD(AddingOneElement_RootShouldBeThatElement) {
+				Tree anyTree;
+				IntElement anyElement;
+			}
 	};
 }
