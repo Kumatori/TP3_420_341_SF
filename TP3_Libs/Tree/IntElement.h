@@ -4,10 +4,12 @@
 class IntElement :
 	public TreeElement {
 		public:
-			IntElement(int value);
+			IntElement(const int& value);
 			~IntElement();
-			bool operator==(const IntElement& rObject) const;
-			bool operator<(const IntElement& rObject) const;
+			bool operator==(const TreeElement& rObject) const;
+			bool operator<(const TreeElement& rObject) const;
+			
 		private:
+			int getElement() const;
 			int _value;
 };
