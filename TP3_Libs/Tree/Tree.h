@@ -10,23 +10,23 @@ class Tree {
 		bool isEmpty();
 		int searchElement(TreeElement* element);
 		int nbOfElements();
-		int getDepth(); //BONUS
 	private:
 		struct ElementToAddAlreadyExistingException : public std::runtime_error {
-			public:
-				ElementToAddAlreadyExistingException(const char* message) : std::runtime_error(message) {};
+		public:
+			ElementToAddAlreadyExistingException(const char* message) : std::runtime_error(message) {};
 		};
 		struct Node {
-			public:
-				Node(TreeElement* element, Node* parent);
-				TreeElement* _element;
-				Node* _parent;
-				Node* _left;
-				Node* _right;
+		public:
+			Node(TreeElement* element, Node* parent);
+			TreeElement* _element;
+			Node* _parent;
+			Node* _left;
+			Node* _right;
 		};
 		void remove(Node* node);
 		void add(TreeElement* element, Node* node);
-		void balanceTree();
+		void balanceTree(Node * node);
+		int getDepth(Node * node, int tempDepth1, int tempDepth2);
 		int nbOfElements(Node* node, int nbElements);
 		int searchElement(Node* node, TreeElement* element, int tempDepth);
 		Node* _root;
