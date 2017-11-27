@@ -33,7 +33,7 @@ void Tree::add(TreeElement* element) {
 }
 
 void Tree::add(TreeElement* element, Node* node) {
-	if (searchElement(element) != -1) throw ElementToAddAlreadyExistingException("Element already exists in tree!");
+	if (*element == *node->_element) throw ElementToAddAlreadyExistingException("Element already exists in tree!");
 	if (*element < *(node->_element)) {
 		if (node->_left == NULL) {
 			Node* newNode = new Node(element, node);
@@ -70,14 +70,20 @@ void Tree::balanceLeft(Node * node, TreeElement * element) {
 	if (node->_left->_element < element) {
 		rotateLeft(node->_left->_right);
 	}
-	rotateRight(node->_left);
+	//rotateRight(node->_left);
+	node->_parent = node->_left;
+	node->_left->_parent = NULL;
+	node->_left = NULL;
 }
 
 void Tree::balanceRight(Node * node, TreeElement * element) {
 	if (element < node->_right->_element) {
 		rotateRight(node->_right->_left);
 	}
-	rotateLeft(node->_right);
+	//rotateLeft(node->_right);
+	node->_parent = node->_right;
+	node->_right->_parent = NULL;
+	node->_right = NULL;
 }
 
 void Tree::rotateLeft(Node * node) {
@@ -104,6 +110,10 @@ int Tree::nbOfElements() {
 	int nbElements = 0;
 
 	return nbOfElements(_root, nbElements);
+}
+
+int Tree::getDepth() {
+	return getDepth(_root);
 }
 
 int Tree::nbOfElements(Node* node, int nbElements) {

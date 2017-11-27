@@ -106,7 +106,59 @@ namespace TreeTests {
 				anyTree.add(&fourElement);
 				int depth = anyTree.searchElement(&thirdElement);
 
-				Assert::AreEqual(2, depth);
+				Assert::AreEqual(0, depth);
+			}
+			TEST_METHOD(addingElements_5_3_4_TreeShouldBeBalanced_LEFT_RIGHT_CASE) {
+				Tree anyTree;
+				IntElement firstElement(5);
+				IntElement secondElement(3);
+				IntElement thirdElement(4);
+
+				anyTree.add(&firstElement);
+				anyTree.add(&secondElement);
+				anyTree.add(&thirdElement);
+				int depth = anyTree.getDepth();
+
+				Assert::AreEqual(1, depth);
+			}
+			TEST_METHOD(addingElements_5_4_3_TreeShouldBeBalanced_LEFT_LEFT_CASE) {
+				Tree anyTree;
+				IntElement firstElement(5);
+				IntElement secondElement(4);
+				IntElement thirdElement(3);
+
+				anyTree.add(&firstElement);
+				anyTree.add(&secondElement);
+				anyTree.add(&thirdElement);
+				int depth = anyTree.getDepth();
+
+				Assert::AreEqual(1, depth);
+			}
+			TEST_METHOD(addingElements_3_5_4_TreeShouldBeBalanced_RIGHT_LEFT_CASE) {
+				Tree anyTree;
+				IntElement firstElement(3);
+				IntElement secondElement(5);
+				IntElement thirdElement(4);
+
+				anyTree.add(&firstElement);
+				anyTree.add(&secondElement);
+				anyTree.add(&thirdElement);
+				int depth = anyTree.getDepth();
+
+				Assert::AreEqual(1, depth);
+			}
+			TEST_METHOD(addingElements_3_4_5_TreeShouldBeBalanced_RIGHT_RIGHT_CASE) {
+				Tree anyTree;
+				IntElement firstElement(3);
+				IntElement secondElement(4);
+				IntElement thirdElement(5);
+
+				anyTree.add(&firstElement);
+				anyTree.add(&secondElement);
+				anyTree.add(&thirdElement);
+				int depth = anyTree.getDepth();
+
+				Assert::AreEqual(1, depth);
 			}
 	};
 }
