@@ -26,7 +26,8 @@ class Tree {
 		void remove(Node* node);
 		void add(TreeElement* element, Node* node);
 		void balanceTree(Node * node);
-		int getDepth(Node * node, int tempDepth1, int tempDepth2);
+		bool isBalanced(Node* node);
+		int getDepth(Node * node);
 		int nbOfElements(Node* node, int nbElements);
 		int searchElement(Node* node, TreeElement* element, int tempDepth);
 		Node* _root;

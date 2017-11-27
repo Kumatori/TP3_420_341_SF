@@ -55,32 +55,22 @@ void Tree::add(TreeElement* element, Node* node) {
 	}
 }
 
-void Tree::balanceTree(Node* node){
-	int tempDepth1 = 0;
-	int tempDepth2 = 0;
+void Tree::balanceTree(Node* node) {
+	if (isBalanced(node)) {
+		if (node->_parent) balanceTree(node->_parent);
+	} else {
 
-	if ((getDepth(node->_left, tempDepth1, tempDepth2) - getDepth(node->_right, tempDepth1, tempDepth2)) == 0 || (getDepth(node->_left, tempDepth1, tempDepth2) - getDepth(node->_right, tempDepth1, tempDepth2)) == 1) {
-		if (node->_parent != NULL) balanceTree(node->_parent);
 	}
 }
 
-int Tree::getDepth(Node* node, int tempDepth1,int tempDepth2) {
+bool Tree::isBalanced(Node* node) {
+	return (((getDepth(node->_left) - getDepth(node->_right)) == 0) || ((getDepth(node->_left) - getDepth(node->_right)) == 1));
+}
 
-	
-	// TODO: hello
+int Tree::getDepth(Node* node) {
+	if (node) return 1 + fmax(getDepth(node->_left), getDepth(node->_right));
 
-	tempDepth1++;
-	tempDepth2++;
-
-	if (node == NULL) {
-		tempDepth1--;
-		tempDepth2--;
-	}
-	if (node != NULL) {
-		tempDepth1 = getDepth(node->_left, tempDepth1, tempDepth2);
-		tempDepth2 = getDepth(node->_right, tempDepth1, tempDepth2);
-	}
-	return fmax(tempDepth1, tempDepth1);
+	return 0;
 }
 
 int Tree::nbOfElements() {
