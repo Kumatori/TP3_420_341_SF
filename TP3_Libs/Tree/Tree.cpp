@@ -73,6 +73,7 @@ void Tree::balanceLeft(Node * node, TreeElement * element) {
 	//rotateRight(node->_left);
 	node->_parent = node->_left;
 	node->_left->_parent = NULL;
+	node->_left->_right = node;
 	node->_left = NULL;
 }
 
@@ -83,6 +84,7 @@ void Tree::balanceRight(Node * node, TreeElement * element) {
 	//rotateLeft(node->_right);
 	node->_parent = node->_right;
 	node->_right->_parent = NULL;
+	node->_right->_left = node;
 	node->_right = NULL;
 }
 
