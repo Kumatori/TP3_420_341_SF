@@ -11,11 +11,16 @@ LinkedList::~LinkedList() {
 }
 
 bool LinkedList::searchElement(LinkedListElement * node) {
-	return false;
+	
 }
 
 void LinkedList::add(LinkedListElement * node) {
 	_nbOfElements++;
+}
+
+void LinkedList::remove(LinkedListElement* element) {
+	LinkedListElement* previous = _last;
+	LinkedListElement* current = _last->_previous;
 }
 
 unsigned int LinkedList::getNbOfElements() {

@@ -17,7 +17,7 @@ void Node::add(Edge* edge) {
 }
 
 void Node::remove(Edge * edge) {
-
+	_listEdges.remove(edge);
 }
 
 string Node::getName() {

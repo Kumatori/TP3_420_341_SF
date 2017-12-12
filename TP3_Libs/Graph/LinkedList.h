@@ -9,6 +9,7 @@ class LinkedList {
 		~LinkedList();
 		bool searchElement(LinkedListElement* element);
 		void add(LinkedListElement* element);
+		void remove(LinkedListElement* element);
 		unsigned int getNbOfElements();
 	private:
 		LinkedListElement* _last;
