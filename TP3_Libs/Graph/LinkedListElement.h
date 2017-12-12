@@ -1,6 +1,6 @@
 #pragma once
 
 class LinkedListElement {
-protected:
-	LinkedListElement() {}
+	protected:
+		LinkedListElement() {}
 };
