@@ -1,4 +1,4 @@
-#pragma once
+/**#pragma once
 #include "Graph.h"
 
 Graph::Graph() {
@@ -16,4 +16,4 @@ void Graph::add(Node* node) {
 
 void Graph::remove(Node * node) {
 
-}
+}**/

@@ -1,4 +1,4 @@
-#pragma once
+/**#pragma once
 #include "LinkedList.h"
 
 LinkedList::LinkedList() {
@@ -20,9 +20,9 @@ void LinkedList::add(LinkedListElement * node) {
 
 void LinkedList::remove(LinkedListElement* element) {
 	LinkedListElement* previous = _last;
-	LinkedListElement* current = _last->_previous;
+	LinkedListElement* current = _last;
 }
 
 unsigned int LinkedList::getNbOfElements() {
 	return _nbOfElements;
-}
+}**/

@@ -16,6 +16,10 @@ bool IntElement::operator<(const TreeElement & rObject) const {
 	return this->_value < rObject.getElement();
 }
 
+bool IntElement::operator>(const TreeElement & rObject) const {
+	return this->_value > rObject.getElement();
+}
+
 int IntElement::getElement() const{
 	return this->_value;
 }

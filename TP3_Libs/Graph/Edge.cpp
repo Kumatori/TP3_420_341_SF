@@ -1,4 +1,4 @@
-#include "Edge.h"
+/**#include "Edge.h"
 
 Edge::Edge(unsigned int cost, Node* neighbor) {
 	_cost = cost;
@@ -15,4 +15,4 @@ unsigned int Edge::getCost() {
 
 Node* Edge::getNeighbor() {
 	return _neighbor;
-}
+}**/

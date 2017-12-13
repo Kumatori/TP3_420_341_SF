@@ -1,4 +1,4 @@
-#pragma once
+/**#pragma once
 #include "Node.h"
 
 Node::Node(string name) {
@@ -17,7 +17,7 @@ void Node::add(Edge* edge) {
 }
 
 void Node::remove(Edge * edge) {
-	_listEdges.remove(edge);
+	
 }
 
 string Node::getName() {
@@ -30,4 +30,4 @@ int Node::getNbOfEgdes() {
 
 bool Node::isNeighbor(Node* node) {
 	return false;
-}
+}**/

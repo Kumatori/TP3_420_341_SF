@@ -9,21 +9,20 @@ class Tree {
 				ElementToAddAlreadyExistingException(const char* message) : std::runtime_error(message) {};
 		};
 		struct Node {
-		public:
-			Node(TreeElement* element, Node* parent);
-			TreeElement* _element;
-			Node* _parent;
-			Node* _left;
-			Node* _right;
+			public:
+				Node(TreeElement* element, Node* parent);
+				TreeElement* _element;
+				Node* _parent;
+				Node* _left;
+				Node* _right;
 		};
-		void remove(Node* node);
+		void remove(Node* node); 
 		void add(TreeElement* element, Node* node);
 		void balanceTree(Node * node, TreeElement* element);
-		bool isBalanced(Node* node);
-		void balanceLeft(Node* node, TreeElement* element);
-		void balanceRight(Node* node, TreeElement* element);
 		void rotateLeft(Node* node);
+		void doubleRotateLeft(Node* node);
 		void rotateRight(Node* node);
+		void doubleRotateRight(Node* node);
 		int getDepth(Node * node);
 		int nbOfElements(Node* node, int nbElements);
 		int searchElement(Node* node, TreeElement* element, int tempDepth);

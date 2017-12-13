@@ -34,76 +34,70 @@ void Tree::add(TreeElement* element) {
 
 void Tree::add(TreeElement* element, Node* node) {
 	if (*element == *node->_element) throw ElementToAddAlreadyExistingException("Element already exists in tree!");
-	if (*element < *(node->_element)) {
+	if (*element < *node->_element) {
 		if (node->_left == NULL) {
 			Node* newNode = new Node(element, node);
 			node->_left = newNode;
-			balanceTree(node, element);
 		} else {
 			add(element, node->_left);
 		}
-	} else {
+	} else if(*element > *node->_element) {
 		if (node->_right == NULL) {
 			Node* newNode = new Node(element, node);
 			node->_right = newNode;
-			balanceTree(node, element);
 		} else {
 			add(element, node->_right);
 		}
 	}
+	balanceTree(node, element);
 }
 
 void Tree::balanceTree(Node* node, TreeElement* element) {
-	if (isBalanced(node)) {
-		if (node->_parent) balanceTree(node->_parent, element);
-	} else {
-		if ((getDepth(node->_left) - getDepth(node->_right)) == 2) balanceLeft(node, element);
-		if ((getDepth(node->_left) - getDepth(node->_right)) == -2) balanceRight(node, element);
+	if ((getDepth(node->_left) - getDepth(node->_right)) == 2) {
+		if (element < node->_left->_element) {
+			rotateLeft(node);
+		} else {
+			doubleRotateLeft(node);
+		}
 	}
-}
-
-bool Tree::isBalanced(Node* node) {
-	return (((getDepth(node->_left) - getDepth(node->_right)) == 0) || (abs(getDepth(node->_left) - getDepth(node->_right)) == 1));
-}
-
-void Tree::balanceLeft(Node * node, TreeElement * element) {
-	if (node->_left->_element < element) {
-		rotateLeft(node->_left->_right);
+	if ((getDepth(node->_left) - getDepth(node->_right)) == -2) {
+		if (element > node->_right->_element) {
+			rotateRight(node);
+		} else {
+			doubleRotateRight(node);
+		}
 	}
-	//rotateRight(node->_left);
-	node->_parent = node->_left;
-	node->_left->_parent = NULL;
-	node->_left->_right = node;
-	node->_left = NULL;
-}
-
-void Tree::balanceRight(Node * node, TreeElement * element) {
-	if (element < node->_right->_element) {
-		rotateRight(node->_right->_left);
-	}
-	//rotateLeft(node->_right);
-	node->_parent = node->_right;
-	node->_right->_parent = NULL;
-	node->_right->_left = node;
-	node->_right = NULL;
 }
 
 void Tree::rotateLeft(Node * node) {
-	node->_parent->_parent->_left = node;
-	node->_left = node->_parent;
-	node->_parent = node->_left->_parent;
-	node->_left->_parent = node;
+	Node* tempNode = node->_left;
+	node->_left = tempNode->_right;
+	tempNode->_parent = node->_parent;
+	node->_parent = tempNode;
+	tempNode->_right = node;
+}
+
+void Tree::doubleRotateLeft(Node * node){
+	rotateRight(node->_left);
+	node->_left = node->_left->_parent;
+	rotateLeft(node);
 }
 
 void Tree::rotateRight(Node * node) {
-	node->_parent->_parent->_right = node;
-	node->_right = node->_parent;
-	node->_parent = node->_right->_parent;
-	node->_right->_parent = node;
+	Node* tempNode = node->_right;
+	node->_right = tempNode->_left;
+	tempNode->_parent = node->_parent;
+	node->_parent = tempNode;
+	tempNode->_left = node;
+}
+
+void Tree::doubleRotateRight(Node * node) {
+	rotateLeft(node->_right);
+	rotateRight(node);
 }
 
 int Tree::getDepth(Node* node) {
-	if (node) return 1 + fmax(getDepth(node->_left), getDepth(node->_right));
+	if (node) return (int)(1 + fmax(getDepth(node->_left), getDepth(node->_right)));
 
 	return 0;
 }
@@ -115,6 +109,9 @@ int Tree::nbOfElements() {
 }
 
 int Tree::getDepth() {
+	while (_root->_parent != NULL) {
+		_root = _root->_parent;
+	}
 	return getDepth(_root);
 }
 

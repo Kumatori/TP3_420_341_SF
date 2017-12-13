@@ -1,4 +1,4 @@
-#pragma once
+/**#pragma once
 #include "Edge.h"
 #include "LinkedList.h"
 #include "LinkedListElement.h"
@@ -26,4 +26,4 @@ class Node :
 			};
 			string _name;
 			LinkedList* _listEdges;
-};
+};**/

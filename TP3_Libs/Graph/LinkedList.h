@@ -1,4 +1,4 @@
-#pragma once
+/**#pragma once
 #include "LinkedListElement.h"
 #include "Node.h"
 
@@ -14,4 +14,4 @@ class LinkedList {
 	private:
 		LinkedListElement* _last;
 		unsigned int _nbOfElements;
-};
+};**/
