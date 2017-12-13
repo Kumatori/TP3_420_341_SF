@@ -49,47 +49,69 @@ void Tree::add(TreeElement* element, Node* node) {
 			add(element, node->_right);
 		}
 	}
-	balanceTree(node, element);
+	if (node->_parent != NULL) {
+		balanceTree(node, *element);
+	}
 }
 
-void Tree::balanceTree(Node* node, TreeElement* element) {
+void Tree::balanceTree(Node* node, TreeElement& element) {
 	if ((getDepth(node->_left) - getDepth(node->_right)) == 2) {
-		if (element < node->_left->_element) {
-			rotateLeft(node);
-		} else {
-			doubleRotateLeft(node);
-		}
-	}
-	if ((getDepth(node->_left) - getDepth(node->_right)) == -2) {
-		if (element > node->_right->_element) {
+		if (element < *node->_left->_element) {
 			rotateRight(node);
 		} else {
 			doubleRotateRight(node);
 		}
 	}
+	if ((getDepth(node->_left) - getDepth(node->_right)) == -2) {
+		if (element > *node->_element) {
+			rotateLeft(node);
+		} else {
+			doubleRotateLeft(node);
+		}
+	}
+}
+
+void Tree::rotateRight(Node * node) {
+
+	Node* tempNode = node->_left;
+
+	tempNode->_parent = node->_parent;
+	node->_parent = tempNode;
+
+	node->_left = tempNode->_right;
+	tempNode->_right = node;
+
+	if (tempNode->_parent == nullptr) {
+		this->_root = tempNode;
+	}
+	else {
+		tempNode->_parent->_left = tempNode;
+	}
 }
 
 void Tree::rotateLeft(Node * node) {
-	Node* tempNode = node->_left;
-	node->_left = tempNode->_right;
+	Node* tempNode = node->_right;
+
 	tempNode->_parent = node->_parent;
 	node->_parent = tempNode;
-	tempNode->_right = node;
+
+	node->_right = tempNode->_left;
+	tempNode->_left = node;
+
+	if (tempNode->_parent == nullptr) {
+		this->_root = tempNode;
+	}
+	else {
+		tempNode->_parent->_right = tempNode;
+	}
 }
 
 void Tree::doubleRotateLeft(Node * node){
 	rotateRight(node->_left);
-	node->_left = node->_left->_parent;
 	rotateLeft(node);
 }
 
-void Tree::rotateRight(Node * node) {
-	Node* tempNode = node->_right;
-	node->_right = tempNode->_left;
-	tempNode->_parent = node->_parent;
-	node->_parent = tempNode;
-	tempNode->_left = node;
-}
+
 
 void Tree::doubleRotateRight(Node * node) {
 	rotateLeft(node->_right);
@@ -109,9 +131,6 @@ int Tree::nbOfElements() {
 }
 
 int Tree::getDepth() {
-	while (_root->_parent != NULL) {
-		_root = _root->_parent;
-	}
 	return getDepth(_root);
 }
 

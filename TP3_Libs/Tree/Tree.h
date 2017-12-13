@@ -18,7 +18,7 @@ class Tree {
 		};
 		void remove(Node* node); 
 		void add(TreeElement* element, Node* node);
-		void balanceTree(Node * node, TreeElement* element);
+		void balanceTree(Node * node, TreeElement& element);
 		void rotateLeft(Node* node);
 		void doubleRotateLeft(Node* node);
 		void rotateRight(Node* node);
