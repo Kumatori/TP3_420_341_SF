@@ -6,12 +6,15 @@ using namespace std;
 class LinkedList {
 	public:
 		LinkedList();
-		~LinkedList();
-		bool searchElement(LinkedListElement* element);
 		void add(LinkedListElement* element);
 		void remove(LinkedListElement* element);
-		unsigned int getNbOfElements();
+		int getNbElement();
+		LinkedListElement* getHead();
+		~LinkedList();
 	private:
-		LinkedListElement* _last;
-		unsigned int _nbOfElements;
+		int _nbElement;
+		LinkedListElement* search(LinkedListElement* element);
+		LinkedListElement* searchPrevious(LinkedListElement* element);
+		LinkedListElement* _head;
+
 };

@@ -1,33 +1,46 @@
 #pragma once
 #include "Node.h"
+#include "LinkedList.h"
+#include "LinkedListElement.h"
+#include "Edge.h"
 
 Node::Node(string name) {
 	_name = name;
-	_listEdges = NULL;
+	_listEdges = new LinkedList();
 }
 
-Node::~Node() {
-
-}
-
-void Node::add(Edge* edge) {
-	if (isNeighbor(edge->getNeighbor)) throw EdgeToNeighborToAddAlreadyExistingException("Edge to neighbor to add alreay exists in list of edges!");
-	if (edge->getNeighbor == this) throw EdgeToAddCannotTargetSelfNodeException("Edge to add can't target the node itself!");
+void Node::addEdge(Edge * edge)
+{
 	_listEdges->add(edge);
 }
 
-void Node::remove(Edge * edge) {
-	
+bool Node::isNeighbor(Node * node)
+{
+	Edge* tempEdge = (Edge*)_listEdges->getHead();
+	while (tempEdge != NULL) {
+		if (tempEdge->getNeighbor()  == node) return true;
+		tempEdge = (Edge*)tempEdge->getNext();
+	}
+	return false;
 }
 
-string Node::getName() {
+LinkedListElement * Node::getNext()
+{
+	return _next;
+}
+
+string Node::getName()
+{
 	return _name;
 }
 
-int Node::getNbOfEgdes() {
-	return _listEdges->getNbOfElements;
+int Node::getDegree()
+{
+	return _listEdges->getNbElement();
 }
 
-bool Node::isNeighbor(Node* node) {
-	return false;
+Node::~Node() {
+	while (_listEdges->getHead() != NULL) {
+		_listEdges->remove(_listEdges->getHead);
+	}
 }

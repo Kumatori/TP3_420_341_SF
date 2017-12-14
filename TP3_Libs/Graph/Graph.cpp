@@ -2,18 +2,22 @@
 #include "Graph.h"
 
 Graph::Graph() {
-	_listNodes = NULL;
+	_listNodes = new LinkedList();
 }
 
-Graph::~Graph() {
-
-}
-
-void Graph::add(Node* node) {
-	if (_listNodes->searchElement(node)) throw ElementToAddAlreadyExistingException("Node already exists in graph!");
+void Graph::add(Node * node)
+{
 	_listNodes->add(node);
 }
 
-void Graph::remove(Node * node) {
+void Graph::remove(Node * node)
+{
+	_listNodes->remove(node);
+}
 
+Graph::~Graph() {
+	while (_listNodes->getHead() != NULL) {
+		_listNodes->remove(_listNodes->getHead());
+	}
+	delete this->_listNodes;
 }

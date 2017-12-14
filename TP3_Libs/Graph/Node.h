@@ -5,25 +5,20 @@
 #include <iostream>
 
 using namespace std;
+
+class LinkedList;
+class Edge;
 class Node :
 	public LinkedListElement {
 		public:
 			Node(string name);
-			~Node();
-			void add(Edge* edge);
-			void remove(Edge* edge);
-			string getName();
-			int getNbOfEgdes();
+			void addEdge(Edge* edge);
 			bool isNeighbor(Node* node);
+			LinkedListElement* getNext();
+			string getName();
+			int getDegree();
+			~Node();
 		private:
-			struct EdgeToAddCannotTargetSelfNodeException : public std::runtime_error {
-				public:
-					EdgeToAddCannotTargetSelfNodeException(const char* message) : std::runtime_error(message) {};
-			};
-			struct EdgeToNeighborToAddAlreadyExistingException : public std::runtime_error {
-			public:
-				EdgeToNeighborToAddAlreadyExistingException(const char* message) : std::runtime_error(message) {};
-			};
 			string _name;
 			LinkedList* _listEdges;
 };

@@ -1,16 +1,21 @@
 #pragma once
 #include "Node.h"
+#include "LinkedListElement.h"
 #include <iostream>
 
 using namespace std;
-class Edge :
+
+class LinkedListElement;
+class Node;
+class Edge:
 	public LinkedListElement {
 		public:
-			Edge(unsigned int cost, Node* neighbor);
-			~Edge();
-			unsigned int getCost();
+			Edge( int cost, Node* neighbor);
 			Node* getNeighbor();
-		private:
-			unsigned int _cost;
+			LinkedListElement* getNext();
+			int getCost();
+			~Edge();
+		private :
+			int _cost;
 			Node* _neighbor;
 };

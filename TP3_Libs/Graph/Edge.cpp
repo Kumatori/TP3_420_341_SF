@@ -1,18 +1,29 @@
+#pragma once
 #include "Edge.h"
+#include "Node.h"
+#include "LinkedList.h"
+#include "LinkedListElement.h"
 
-Edge::Edge(unsigned int cost, Node* neighbor) {
+Edge::Edge( int cost, Node* neighbor) {
 	_cost = cost;
 	_neighbor = neighbor;
 }
 
-Edge::~Edge() {
-	delete this;
+Node * Edge::getNeighbor()
+{
+	return _neighbor;
 }
 
-unsigned int Edge::getCost() {
+LinkedListElement * Edge::getNext()
+{
+	return _next;
+}
+
+int Edge::getCost()
+{
 	return _cost;
 }
 
-Node* Edge::getNeighbor() {
-	return _neighbor;
+Edge::~Edge() {
+
 }
