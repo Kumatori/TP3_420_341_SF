@@ -41,6 +41,6 @@ int Node::getDegree()
 
 Node::~Node() {
 	while (_listEdges->getHead() != NULL) {
-		_listEdges->remove(_listEdges->getHead);
+		_listEdges->remove(_listEdges->getHead());
 	}
 }
