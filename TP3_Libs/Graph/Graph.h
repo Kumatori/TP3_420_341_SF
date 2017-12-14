@@ -1,4 +1,4 @@
-/**#pragma once
+#pragma once
 #include "LinkedList.h"
 #include "LinkedListElement.h"
 #include "Node.h"
@@ -19,4 +19,4 @@ class Graph {
 				ElementToAddAlreadyExistingException(const char* message) : std::runtime_error(message) {};
 		};
 		LinkedList* _listNodes;
-};**/
+};

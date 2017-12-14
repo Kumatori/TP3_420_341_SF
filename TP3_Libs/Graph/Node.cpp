@@ -1,4 +1,4 @@
-/**#pragma once
+#pragma once
 #include "Node.h"
 
 Node::Node(string name) {
@@ -30,4 +30,4 @@ int Node::getNbOfEgdes() {
 
 bool Node::isNeighbor(Node* node) {
 	return false;
-}**/
+}

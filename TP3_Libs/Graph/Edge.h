@@ -1,4 +1,4 @@
-/**#pragma once
+#pragma once
 #include "Node.h"
 #include <iostream>
 
@@ -13,4 +13,4 @@ class Edge :
 		private:
 			unsigned int _cost;
 			Node* _neighbor;
-};**/
+};
