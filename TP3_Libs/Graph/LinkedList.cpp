@@ -18,19 +18,26 @@ void LinkedList::remove(LinkedListElement * element)
 	LinkedListElement* elementToRemove = search(element);
 	if (elementToRemove != NULL) {
 		if (elementToRemove == _head) _head = _head->_next;
-		LinkedListElement* tempPrevious = searchPrevious(elementToRemove);
-		tempPrevious->_next = elementToRemove->_next;
+		if (_head != NULL) {
+			LinkedListElement* tempPrevious = searchPrevious(elementToRemove);
+			tempPrevious->_next = elementToRemove->_next;
+		}
 		delete elementToRemove;
 		_nbElement--;
 	}
 
 }
 
+bool LinkedList::contains(LinkedListElement* element) {
+	if (search(element) == NULL) return false;
+	return true;
+}
+
 LinkedListElement * LinkedList::search(LinkedListElement * element)
 {
 	LinkedListElement* temp = _head;
 
-	while (_head != NULL) {
+	while (temp != NULL) {
 		if (temp == element) return temp;
 		temp = temp->getNext();
 	}
@@ -57,6 +64,8 @@ LinkedListElement * LinkedList::getHead()
 	return _head;
 }
 LinkedList::~LinkedList() {
-
+	while (_head != NULL) {
+		remove(_head);
+	}
 }
 

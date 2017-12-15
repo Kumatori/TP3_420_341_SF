@@ -19,6 +19,10 @@ class Node :
 			int getDegree();
 			~Node();
 		private:
+			struct InvalidEdgeAdded : public std::runtime_error {
+				public:
+					InvalidEdgeAdded(const char* message) : std::runtime_error(message) {};
+			};
 			string _name;
 			LinkedList* _listEdges;
 };

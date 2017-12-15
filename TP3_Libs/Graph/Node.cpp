@@ -11,6 +11,8 @@ Node::Node(string name) {
 
 void Node::addEdge(Edge * edge)
 {
+	if (_listEdges->contains(edge)) throw InvalidEdgeAdded("Edge being added is already in list of Edges");
+	if (edge->getNeighbor() == this) throw InvalidEdgeAdded("Neighbor of edge being added can't be himself");
 	_listEdges->add(edge);
 }
 

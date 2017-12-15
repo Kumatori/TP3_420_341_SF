@@ -9,6 +9,7 @@ class LinkedList {
 		void add(LinkedListElement* element);
 		void remove(LinkedListElement* element);
 		int getNbElement();
+		bool contains(LinkedListElement* element);
 		LinkedListElement* getHead();
 		~LinkedList();
 	private:

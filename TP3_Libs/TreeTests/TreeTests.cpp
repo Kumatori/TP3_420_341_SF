@@ -18,6 +18,24 @@ namespace TreeTests {
 
 				Assert::IsFalse(anyTree.isEmpty());
 			}
+			TEST_METHOD(AddingTwoSameElement_throwsException) {
+				Tree anyTree;
+				IntElement anyElement(3);
+
+				anyTree.add(&anyElement);
+				bool throwed = false;
+
+				try
+				{
+					anyTree.add(&anyElement);
+				}
+				catch (const std::runtime_error&)
+				{
+					throwed = true;
+				}
+
+				Assert::IsTrue(throwed);
+			}
 			TEST_METHOD(AddingOneElement_addedElementIsRoot) {
 				Tree anyTree;
 				IntElement anyElement(3);

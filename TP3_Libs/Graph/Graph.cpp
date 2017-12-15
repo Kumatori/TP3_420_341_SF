@@ -7,6 +7,7 @@ Graph::Graph() {
 
 void Graph::add(Node * node)
 {
+	if (_listNodes->contains(node)) throw NodeToAddAlreadyExistingException("Node to add already exists in graph!");
 	_listNodes->add(node);
 }
 

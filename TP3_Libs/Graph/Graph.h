@@ -16,5 +16,9 @@ class Graph {
 		void remove(Node* node);
 		~Graph();
 	private:
+		struct NodeToAddAlreadyExistingException : public std::runtime_error {
+			public:
+				NodeToAddAlreadyExistingException(const char* message) : std::runtime_error(message) {};
+		};
 		LinkedList* _listNodes;
 };

@@ -11,4 +11,8 @@
 #include "CppUnitTest.h"
 
 // TODO: reference additional headers your program requires here
+#include "../Graph/Edge.h"
 #include "../Graph/Graph.h"
+#include "../Graph/LinkedList.h"
+#include "../Graph/LinkedListElement.h"
+#include "../Graph/Node.h"
